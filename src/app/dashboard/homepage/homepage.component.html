@@ -1,0 +1,36 @@
+<div class="dashboard">
+  <h2>Overview</h2>
+  <div class="charts">
+    <div>
+      <h3>Donut Chart</h3>
+      <plotly-plot *ngIf="donutChartData.values.length"
+                   [data]="[donutChartData]" 
+                   [layout]="{ title: 'Donut Chart' }"></plotly-plot>
+    </div>
+    <div>
+      <h3>Bar Chart</h3>
+      <plotly-plot *ngIf="barChartData.x.length"
+                   [data]="[barChartData]" 
+                   [layout]="{ title: 'Bar Chart' }"></plotly-plot>
+    </div>
+  </div>
+  <h2>User List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>User Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of tableUsers; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.username }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

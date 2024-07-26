@@ -1,0 +1,15 @@
+<div class="parent">
+  <div class="container">
+    <legend>Sign In to Your Dashboard</legend>
+    <div class="mb-3">
+        <!--<label for="txtUsername" aria-placeholder="Username" class="form-label">Username</label>-->
+        <input type="text" class="form-control" id="txtUsername" placeholder="Username" [(ngModel)]="loginForm.username">
+    </div>
+    <div class="mb-3">
+        <!--<label for="txtPassword" aria-placeholder="Password" class="form-label">Password</label>-->
+        <input 
+            type="password" placeholder="Password" class="form-control" id="txtPassword" [(ngModel)]="loginForm.password">
+    </div>
+    <button class="btn btn-primary" (click)="userSignIn()">Sign In</button>
+</div>  
+</div>
