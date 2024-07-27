@@ -1,21 +1,33 @@
-<div class="dashboard">
+<div class="container mt-5">
   <h2>Overview</h2>
-  <div class="charts">
-    <div>
-      <h3>Donut Chart</h3>
-      <plotly-plot *ngIf="donutChartData.values.length"
-                   [data]="[donutChartData]" 
-                   [layout]="{ title: 'Donut Chart' }"></plotly-plot>
+  <div class="row">
+    <div class="col-md-6 mb-4">
+      <div class="card">
+        <div class="card-header">
+          Donut Chart
+        </div>
+        <div class="card-body">
+          <plotly-plot *ngIf="donutChartData.values.length"
+                       [data]="[donutChartData]" 
+                       [layout]="donutChartLayout"></plotly-plot>
+        </div>
+      </div>
     </div>
-    <div>
-      <h3>Bar Chart</h3>
-      <plotly-plot *ngIf="barChartData.x.length"
-                   [data]="[barChartData]" 
-                   [layout]="{ title: 'Bar Chart' }"></plotly-plot>
+    <div class="col-md-6 mb-4">
+      <div class="card">
+        <div class="card-header">
+          Bar Chart
+        </div>
+        <div class="card-body">
+          <plotly-plot *ngIf="barChartData.x.length"
+                       [data]="[barChartData]" 
+                       [layout]="barChartLayout"></plotly-plot>
+        </div>
+      </div>
     </div>
   </div>
   <h2>User List</h2>
-  <table>
+  <table class="table table-striped">
     <thead>
       <tr>
         <th>#</th>

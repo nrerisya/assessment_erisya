@@ -17,13 +17,40 @@ export class HomepageComponent implements OnInit {
   donutChartData: any = {
     values: [],
     labels: [],
-    type: 'pie'
+    hole: 0.4,
+    type: 'pie',
+    textinfo: 'none',
+    marker: {
+      colors: ['#d3d3d3', '#b0b0b0', '#808080', '#a0a0a0']
+    }
+  };
+  donutChartLayout: any = {
+    title: 'Donut Chart',
+    showlegend: false
   };
   barChartData: any = {
     x: [],
     y: [],
-    type: 'bar'
+    type: 'bar',
+    marker: {
+      color: '#a0a0a0'
+    }
   };
+  barChartLayout: any = {
+    title: '',  // No title
+    showlegend: false,
+    xaxis: {
+      linecolor: '#a0a0a0',
+      showgrid: false,
+      showticklabels: false,
+      showline: false,
+    },
+    yaxis: {
+      linecolor: '#a0a0a0',
+      showgrid: false,
+      showticklabels: false
+    }
+  }
   tableUsers: any[] = [];
 
   constructor(private dashboardService: DashboardService) { }
@@ -53,7 +80,12 @@ export class HomepageComponent implements OnInit {
     return {
       values: data.map(item => item.value),
       labels: data.map(item => item.name),
-      type: 'pie'
+      hole: 0.4,
+      type: 'pie',
+      textinfo: 'none',
+      marker: {
+        colors: ['#d3d3d3', '#b0b0b0', '#808080', '#a0a0a0']
+      }
     };
   }
   
@@ -61,7 +93,10 @@ export class HomepageComponent implements OnInit {
     return {
       x: data.map(item => item.name),
       y: data.map(item => item.value),
-      type: 'bar'
+      type: 'bar',
+      marker: {
+        color: '#a0a0a0'
+      }
     };
   }
 }

@@ -65,6 +65,13 @@ export class SignInComponent {
   
   userSignIn() {
     this.http.post("http://test-demo.aemenersol.com/api/account/login", this.loginForm)
+    .pipe(
+      catchError((error) => {
+        console.error('Error during login:', error);
+        alert("Login Failed: Incorrect username or password.");
+        return throwError(error);
+      })
+    )
     .subscribe((res:any) => {
       //to check what res is
       console.log('res', res);
